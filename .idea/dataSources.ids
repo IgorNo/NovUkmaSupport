@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - ukmasupport@localhost" uuid="0deb8d88-c05e-4fc9-a3af-ffb65722f8c8">
+    <database-info product="MySQL" version="5.7.9-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="ukmasupport"/>
+    <table name="auditirium" schema="" catalog="ukmasupport" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="number" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="auditorium_id" table="workplace" schema="" catalog="ukmasupport" columns="auditorium_id"/>
+      <index name="user_id_UNIQUE" unique="true" columns="id"/>
+    </table>
+    <table name="orders" schema="" catalog="ukmasupport" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="assistant_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="workplase_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="title" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVAoNik=" version="true"/>
+      <column name="status" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="assistant_id" columns="assistant_id" ref-table="users" ref-schema="" ref-catalog="ukmasupport" ref-columns="id_user" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id" columns="user_id" ref-table="users" ref-schema="" ref-catalog="ukmasupport" ref-columns="id_user" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="workplase_id" columns="workplase_id" ref-table="workplace" ref-schema="" ref-catalog="ukmasupport" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="id_UNIQUE" unique="true" columns="id"/>
+      <index name="assistant_id_idx" unique="false" columns="assistant_id"/>
+      <index name="user_id_idx" unique="false" columns="user_id"/>
+      <index name="workplase_id_idx" unique="false" columns="workplase_id"/>
+    </table>
+    <table name="user_roles" schema="" catalog="ukmasupport" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="role" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="user_roleid" table="users" schema="" catalog="ukmasupport" columns="user_roleid"/>
+      <index name="id_UNIQUE" unique="true" columns="id"/>
+    </table>
+    <table name="users" schema="" catalog="ukmasupport" type="TABLE">
+      <column name="id_user" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="user_roleid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="first_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="data_entry" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="password" sqlType="VARCHAR" precision="170" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status_account" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_user"/>
+      <foreign-key name="user_roleid" columns="user_roleid" ref-table="user_roles" ref-schema="" ref-catalog="ukmasupport" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="assistant_id" table="orders" schema="" catalog="ukmasupport" columns="assistant_id"/>
+      <exported-key name="user_id" table="orders" schema="" catalog="ukmasupport" columns="user_id"/>
+      <index name="id_UNIQUE" unique="true" columns="id_user"/>
+      <index name="user_roleid_idx" unique="false" columns="user_roleid"/>
+    </table>
+    <table name="workplace" schema="" catalog="ukmasupport" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="auditorium_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="access_num" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auditorium_id" columns="auditorium_id" ref-table="auditirium" ref-schema="" ref-catalog="ukmasupport" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="workplase_id" table="orders" schema="" catalog="ukmasupport" columns="workplase_id"/>
+      <index name="id_UNIQUE" unique="true" columns="id"/>
+      <index name="auditorium_id_idx" unique="false" columns="auditorium_id"/>
+    </table>
+  </data-source>
+</component>
