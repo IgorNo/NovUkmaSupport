@@ -7,6 +7,7 @@
        ">
 
     <import resource="webflow.xml"/>
+    <import resource="classpath:META-INF/spring/datasource-jndi.xml"/>
 
     <mvc:resources location="/" mapping="/resources/**"/>
 

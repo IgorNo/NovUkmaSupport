@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3529022140">
-    <data-source source="LOCAL" name="MySQL - ukmasupport@localhost" uuid="0deb8d88-c05e-4fc9-a3af-ffb65722f8c8">
+  <component name="DataSourceManagerImpl" format="xml" hash="2419287502">
+    <data-source source="LOCAL" name="MySQL - ukmaSupport@localhost" uuid="0deb8d88-c05e-4fc9-a3af-ffb65722f8c8">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/ukmasupport</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/ukmaSupport</jdbc-url>
       <driver-properties>
         <property name="zeroDateTimeBehavior" value="convertToNull" />
         <property name="tinyInt1isBit" value="false" />
@@ -13,6 +13,13 @@
         <property name="characterSetResults" value="utf8" />
         <property name="yearIsDateType" value="false" />
       </driver-properties>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="PostgreSQL" uuid="26342163-f8e1-4e6d-aaa1-a3017fe704d3">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://jdbc:postgresql://ec2-54-217-208-102.eu-west-1.compute.amazonaws.com/d3n5tjmb82o7ko?ssl=true&amp;amp;sslfactory=org.postgresql.ssl.NonValidatingFactory</jdbc-url>
       <libraries />
     </data-source>
   </component>

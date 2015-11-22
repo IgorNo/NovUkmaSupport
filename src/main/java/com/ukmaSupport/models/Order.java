@@ -22,7 +22,7 @@ public class Order {
         this.workplace = workplace;
     }
 
-        public int getWorkplace_id() {
+    public int getWorkplace_id() {
         return workplace_id;
     }
 
@@ -30,7 +30,7 @@ public class Order {
         this.workplace_id = workplace_id;
     }
 
-    public void setWorkspaceNumber(int numb){
+    public void setWorkspaceNumber(int numb) {
         workplace.setAccessNumber(numb);
     }
 
@@ -105,7 +105,7 @@ public class Order {
                 "id=" + id +
                 ", userId=" + userId +
                 ", assistantId=" + assistantId +
-               // ", workplace_access_num='" + workplace_access_num + '\'' +
+                // ", workplace_access_num='" + workplace_access_num + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", createdAt=" + createdAt +

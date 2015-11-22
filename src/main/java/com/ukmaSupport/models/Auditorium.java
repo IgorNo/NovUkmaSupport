@@ -15,7 +15,7 @@ public class Auditorium implements Serializable {
     public void setNumber(String number) {
         this.number = number;
     }
-    
+
     public int getUserId() {
         return userId;
     }

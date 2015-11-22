@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - ukmasupport@localhost" uuid="0deb8d88-c05e-4fc9-a3af-ffb65722f8c8">
+  <data-source name="MySQL - ukmaSupport@localhost" uuid="0deb8d88-c05e-4fc9-a3af-ffb65722f8c8">
     <database-info product="MySQL" version="5.7.9-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
@@ -65,5 +65,8 @@
       <index name="id_UNIQUE" unique="true" columns="id"/>
       <index name="auditorium_id_idx" unique="false" columns="auditorium_id"/>
     </table>
+  </data-source>
+  <data-source name="PostgreSQL" uuid="26342163-f8e1-4e6d-aaa1-a3017fe704d3">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
 </component>

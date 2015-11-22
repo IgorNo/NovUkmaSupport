@@ -16,7 +16,8 @@
         <mojarra-version>2.2.10</mojarra-version>
         <primefaces-version>5.0</primefaces-version>
          <mysqlconnector-version>5.1.34</mysqlconnector-version>
-    </properties>
+         <dbcp.version>1.4</dbcp.version>
+     </properties>
     
      <dependencyManagement>
         <dependencies>
@@ -131,7 +132,13 @@
             <scope>runtime</scope>
         </dependency>
 
-        <dependency>
+      <dependency>
+          <groupId>commons-dbcp</groupId>
+          <artifactId>commons-dbcp</artifactId>
+          <version>${dbcp.version}</version>
+      </dependency>
+
+      <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.0.1</version>
