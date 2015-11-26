@@ -8,6 +8,6 @@
         http://www.springframework.org/schema/jee
         http://www.springframework.org/schema/jee/spring-jee.xsd">
 
-       <jee:jndi-lookup jndi-name="java:comp/env/jdbc/ukmaSupport" />
+       <jee:jndi-lookup jndi-name="jdbc/ukmaSupport" />
 
 </beans>

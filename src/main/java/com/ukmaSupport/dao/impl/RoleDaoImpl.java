@@ -6,27 +6,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@Component("roleDao")
+@Repository("roleDao")
 public class RoleDaoImpl implements RoleDao {
 
     private NamedParameterJdbcTemplate jdbcTemplate;
 
-    @Autowired
+    @Resource(name="dataSource")
     public void setDataSource(DataSource dataSource) {
         this.jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
     }
 
     @Override
     public Role getById(int id) {
-        String sql = "SELECT role FROM user_roles WHERE id = :id";
+        String sql = "SELECT * FROM user_roles WHERE id = :id";
 
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", id);
@@ -35,8 +39,9 @@ public class RoleDaoImpl implements RoleDao {
     }
 
     @Override
-    public int save(Role role) {
-        String sql = "INSERT INTO user_roles (role) VALUE (:role)";
+    @Transactional
+    public void save(Role role) {
+        String sql = "insert into user_roles (role) VALUES (:role)";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
@@ -45,7 +50,7 @@ public class RoleDaoImpl implements RoleDao {
 
         jdbcTemplate.update(sql, params, keyHolder);
 
-        return keyHolder.getKey().intValue();
+        role.setId(keyHolder.getKey().intValue());
     }
 
     @Override
@@ -68,7 +73,7 @@ public class RoleDaoImpl implements RoleDao {
         public Role mapRow(ResultSet rs, int rowNum) throws SQLException {
             Role role = new Role();
             role.setId(rs.getInt("id"));
-            role.setRole(rs.getString("name"));
+            role.setRole(rs.getString("role"));
             return role;
         }
 

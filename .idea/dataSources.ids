@@ -38,6 +38,7 @@
       <primary-key name="PRIMARY" columns="id"/>
       <exported-key name="user_roleid" table="users" schema="" catalog="ukmasupport" columns="user_roleid"/>
       <index name="id_UNIQUE" unique="true" columns="id"/>
+      <index name="role_UNIQUE" unique="true" columns="role"/>
     </table>
     <table name="users" schema="" catalog="ukmasupport" type="TABLE">
       <column name="id_user" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>

@@ -3,14 +3,14 @@ package com.ukmaSupport.models;
 import java.io.Serializable;
 
 public class Workplace implements Serializable {
-    private int id;
+    private long id;
     private Auditorium auditorium;
     private int accessNumber;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 public class Order implements Serializable {
-    private int id;
+    private long id;
     private User user;
     private User assistant;
     private Workplace workplace;
@@ -13,10 +13,10 @@ public class Order implements Serializable {
     private Timestamp createdAt;
     private String status;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

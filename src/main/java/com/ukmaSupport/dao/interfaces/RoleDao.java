@@ -7,7 +7,7 @@ public interface RoleDao {
 
     Role getById(int id);
 
-    int save(Role role);
+    void save(Role role);
 
     void delete(int id);
 

@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class User implements Serializable {
 
-    private int id;
+    private long id;
     private String email;
     private String password;
     private String confPassword;
@@ -15,10 +15,10 @@ public class User implements Serializable {
     private Date dateOfEntry;
     private String accountStatus;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

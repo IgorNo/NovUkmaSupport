@@ -27,8 +27,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="NovUkmaSupport" target="1.5" />
-      <module name="test1" target="1.5" />
+      <module name="NovUkmaSupport" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
